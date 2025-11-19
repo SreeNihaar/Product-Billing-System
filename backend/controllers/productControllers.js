@@ -34,3 +34,22 @@ export const getFilteredProducts = async (req,res)=>{
         return res.status(500).json({msg: error.message,status: 500});
     }
 };
+
+export const getCategoryProducts = async (req,res)=>{
+    try{
+        const category = req.query.category;
+        const {data,error} = await supabase
+                                        .from("products")
+                                        .select()
+                                        .eq('category',category);
+        if(error){
+            console.log(error);
+            return res.status(500).json({msg: error.message,status: 500});
+        }
+        return res.status(200).json(data);
+    }
+    catch(error){
+        console.log(error);
+        return res.status(500).json({msg: error.message,status: 500});
+    }
+};
