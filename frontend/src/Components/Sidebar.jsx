@@ -17,7 +17,7 @@ export const Sidebar = ()=>{
     },[]);
     
     return(
-        <div className="Sidebar flex items-center flex-col gap-5">
+        <div className="Sidebar flex items-center flex-col gap-5 ">
             <div className="categoryItem min-w-26 min-h-23 border border-red-900 p-8 mb-4 relative left-8 text-center">All</div>
             {
             categoryList 
