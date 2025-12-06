@@ -1,12 +1,14 @@
 import React,{useState} from "react";
 import { Sidebar } from "./Sidebar.jsx";
-import { ItemContainer } from './ItemContainer.jsx';
+import { ViewItem } from "./ViewItem.jsx";
 
 export const Dashboard = ()=>{
     return(
-        <div className="Dashboard pt-10">
-            {/* <Sidebar /> */}
-            <ItemContainer />
+        <div className="Dashboard h-screen flex flex-col">
+            <div className="pt-10 flex flex-row gap-15 overflow-hidden ">
+                <Sidebar />
+                <ViewItem />
+            </div>
         </div>
     );
 }

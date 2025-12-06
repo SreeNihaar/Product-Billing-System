@@ -1,7 +1,7 @@
 import React from "react";
 import { useState,useEffect } from "react";
 import api from "../api/axios";
-
+import { Item } from "./Item.jsx";
 export const ItemContainer = () =>{
 
     const [categoryItems,setCategoryItems] = useState(null);
@@ -11,6 +11,7 @@ export const ItemContainer = () =>{
         .then((res)=>{
             setCategoryItems(res.data);
             console.log(res.data);
+            console.log(typeof res.data)
         })
         .catch((err)=>{
             console.log("Error for categoryItems: ",err);
@@ -18,8 +19,15 @@ export const ItemContainer = () =>{
     },[]);
 
     return (
-        <div className="ItemContainer">
-            hello
+        <div className="ItemContainer flex flex-wrap flex-row gap-9">
+            {
+                (!categoryItems)?
+                    <div> Loading....</div>
+                :
+                categoryItems.map((item)=>
+                    <Item key={item.id} name={item.name} category={item.category} price={item.price} imgURL={item.image} />
+                )
+            }
         </div>
     );
 }

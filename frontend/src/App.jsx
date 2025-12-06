@@ -1,7 +1,6 @@
 import './App.css'
 import api from './api/axios.js'
 import { useState, useEffect } from 'react'
-import { MenuCard } from './Components/MenuCard.jsx';
 import { Dashboard } from './Components/DashBoard.jsx';
 
 function App() {
