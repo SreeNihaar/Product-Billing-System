@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const CartContainer = () =>{
+export const CartContainer = (props) =>{
     const [price,setPrice] = useState(0);
 
     return (
@@ -9,7 +9,7 @@ export const CartContainer = () =>{
                 <button type="button">Cart ▶</button>
             </div>
             <div className="price content-center">
-                <p className="font-bold text-3xl">₹ {price}</p>
+                <p className="font-bold text-3xl">₹ {props.totalPrice}</p>
             </div>
         </div>
     );
