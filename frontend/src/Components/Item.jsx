@@ -2,30 +2,38 @@ import React, { useState } from "react";
 
 export const Item = (props)=>{
 
-    const id= props.id || 1;
-    const name= props.name || 'Plate Idly';
-    const price = props.price || 40;
+    const id= props.item.id || 1;
+    const name= props.item.name || 'Plate Idly';
+    const price = props.item.price || 40;
     const imgURL = 'https://tinyurl.com/n2k2pkwk';
-    const category = props.category || 'tiffin';
+    const category = props.item.category || 'tiffin';
 
     const [count,setCounter] = useState(0);
 
     function addCount(e){
-        if(count<9)
-            setCounter(count+1);
+        if(count<9){
+            const newValue=count+1;
+            props.onClick(props.item,newValue);
+            setCounter(newValue); //Do not call one setState inside another setState
+        }
         else
             return;
     }
 
     function subCount(e){
-        if(count>0)
-            setCounter(count-1);
+        if(count>0){
+            const newValue = count-1;
+            props.onClick(props.item,newValue);
+            setCounter(newValue);
+        }
         else
             return;
     }
 
     return (
-        <div className="Item w-fit p-3.5 border border-white-950 rounded-lg flex flex-row gap-2">
+        <div className={`Item w-fit h-fit p-3.5 border 
+                ${(count!==0)?'border-red-500':'border-white-950'} 
+                rounded-lg flex flex-row gap-2`}>
             <div className="vert1 flex flex-col gap-3">
                 <p className="text-xl font-bold">{name}</p>
                 <p className="text-sm italic" >{category}</p>
