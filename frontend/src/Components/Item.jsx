@@ -31,7 +31,9 @@ export const Item = (props)=>{
     }
 
     return (
-        <div className="Item w-fit p-3.5 border border-white-950 rounded-lg flex flex-row gap-2">
+        <div className={`Item w-fit h-fit p-3.5 border 
+                ${(count!==0)?'border-red-500':'border-white-950'} 
+                rounded-lg flex flex-row gap-2`}>
             <div className="vert1 flex flex-col gap-3">
                 <p className="text-xl font-bold">{name}</p>
                 <p className="text-sm italic" >{category}</p>

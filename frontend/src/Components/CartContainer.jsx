@@ -4,7 +4,7 @@ export const CartContainer = (props) =>{
     const [price,setPrice] = useState(0);
 
     return (
-        <div className="CartContainer flex flex-row align-center p-4 gap-4">
+        <div className="CartContainer w-full mt-4 bg-emerald-900 flex flex-row align-center p-4 gap-4">
             <div className="cart">
                 <button type="button">Cart ▶</button>
             </div>

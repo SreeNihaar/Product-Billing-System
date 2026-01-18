@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ItemContainer } from "./ItemContainer.jsx";
 import { CartContainer } from "./CartContainer.jsx";
 
-export const ViewItem = ()=>{
+export const ViewItem = (props)=>{
 
     const [cartMap,setCartMap] = useState({});
     
@@ -35,8 +35,8 @@ export const ViewItem = ()=>{
     },[cartMap])
 
     return (
-        <div className="ViewItem flex-1 overflow-y-auto">
-            <ItemContainer onClick={handleClick} />
+        <div className="ViewItem flex flex-col w-full pr-2.5">
+            <ItemContainer category={props.category} onClick={handleClick} />
             <CartContainer totalPrice={totalPrice} />
         </div>
     );
