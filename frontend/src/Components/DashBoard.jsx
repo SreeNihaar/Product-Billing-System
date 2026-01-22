@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import { Sidebar } from "./Sidebar.jsx";
 import { ViewItem } from "./ViewItem.jsx";
+import { CartProvider } from "../Contexts/CartContext.jsx";
 
 export const Dashboard = ()=>{
 
@@ -9,7 +10,9 @@ export const Dashboard = ()=>{
         <div className="Dashboard h-screen flex flex-col">
             <div className="pt-10 flex flex-row gap-15 overflow-hidden ">
                 <Sidebar onClick={setSelectedCategory}/>
-                <ViewItem category={selectedCategory}/>
+                <CartProvider>
+                    <ViewItem category={selectedCategory}/>
+                </CartProvider>
             </div>
         </div>
     );

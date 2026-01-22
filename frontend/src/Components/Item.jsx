@@ -13,7 +13,7 @@ export const Item = (props)=>{
     function addCount(e){
         if(count<9){
             const newValue=count+1;
-            props.onClick(props.item,newValue);
+            props.onClick(props.item,newValue); // ViewItem.jsx's handleClick function
             setCounter(newValue); //Do not call one setState inside another setState
         }
         else
@@ -23,7 +23,7 @@ export const Item = (props)=>{
     function subCount(e){
         if(count>0){
             const newValue = count-1;
-            props.onClick(props.item,newValue);
+            props.onClick(props.item,newValue); // ViewItem.jsx's handleClick function
             setCounter(newValue);
         }
         else
