@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useData } from "../Contexts/CartContext.jsx";
 
 export const Item = (props)=>{
 
@@ -8,13 +9,13 @@ export const Item = (props)=>{
     const imgURL = 'https://tinyurl.com/n2k2pkwk';
     const category = props.item.category || 'tiffin';
 
-    const [count,setCounter] = useState(0);
+    const {cartMap, updateCartMap} = useData();
+    const count = (cartMap[id])?cartMap[id].count : 0;
 
     function addCount(e){
         if(count<9){
             const newValue=count+1;
-            props.onClick(props.item,newValue);
-            setCounter(newValue); //Do not call one setState inside another setState
+            updateCartMap(props.item,newValue);
         }
         else
             return;
@@ -23,8 +24,7 @@ export const Item = (props)=>{
     function subCount(e){
         if(count>0){
             const newValue = count-1;
-            props.onClick(props.item,newValue);
-            setCounter(newValue);
+            updateCartMap(props.item,newValue);
         }
         else
             return;
