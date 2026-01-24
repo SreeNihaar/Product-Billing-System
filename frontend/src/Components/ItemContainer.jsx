@@ -3,8 +3,6 @@ import { useState,useEffect } from "react";
 import api from "../api/axios";
 import { Item } from "./Item.jsx";
 
-//Work on the bug where selecting items and filtering them is clearing them in frontend.
-
 export const ItemContainer = (props) =>{
 
     const [categoryItems,setCategoryItems] = useState(null);
@@ -29,11 +27,11 @@ export const ItemContainer = (props) =>{
                 :
                 categoryItems.map((item)=>{
                         if(props.category === 'all'){
-                            return   <Item key={item.id} item={item} onClick={props.onClick} />
+                            return   <Item key={item.id} item={item} />
                         }
                         else{
                             if(props.category === item.category ){
-                                return   <Item key={item.id} item={item} onClick={props.onClick} />
+                                return   <Item key={item.id} item={item} />
                             }
                         }
                     }
