@@ -11,8 +11,6 @@ export const ItemContainer = (props) =>{
         api.get("/")
         .then((res)=>{
             setCategoryItems(res.data);
-            console.log(res.data);
-            console.log(typeof res.data)
         })
         .catch((err)=>{
             console.log("Error for categoryItems: ",err);
